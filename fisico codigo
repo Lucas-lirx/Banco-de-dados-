@@ -1,0 +1,35 @@
+/* Fisico */
+
+CREATE TABLE Cliente (
+    Cpf CHAR PRIMARY KEY UNIQUE,
+    Nome VARCHAR,
+    Email VARCHAR,
+    Data_de_nascimento DATE
+);
+
+CREATE TABLE Endereço (
+    Código INTEGER PRIMARY KEY,
+    Cep VARCHAR,
+    Rua CHAR,
+    Casa INTEGER
+);
+
+CREATE TABLE Veiculo (
+    Código_carro INTEGER PRIMARY KEY,
+    Ano INTEGER,
+    Modelo CHAR,
+    Marca CHAR,
+    Descrição VARCHAR
+);
+
+CREATE TABLE Contrato de Aluguel (
+    Código_contrato INTEGER PRIMARY KEY,
+    Duração VARCHAR,
+    Data DATE,
+    fk_carro_Código_carro INTEGER
+);
+ 
+ALTER TABLE Contrato de Aluguel ADD CONSTRAINT FK_Contrato de Aluguel_1
+    FOREIGN KEY (fk_carro_Código_carro)
+    REFERENCES Veiculo (Código_carro)
+    ON DELETE CASCADE;
